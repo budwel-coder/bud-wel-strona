@@ -1,7 +1,0 @@
-[build]
-  publish = "BUD-WEL-panel"
-
-[[headers]]
-  for = "/admin/*"
-  [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
