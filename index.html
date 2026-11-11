@@ -1,15 +1,8 @@
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", function () {
-      if (window.location.hash.includes("recovery_token=")) {
-        window.netlifyIdentity.open();
-      }
-    });
+[build]
+  publish = "."
 
-    window.netlifyIdentity.on("login", function () {
-      window.location.href = "/admin/";
-    });
-  }
-</script>
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
