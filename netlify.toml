@@ -1,1 +1,7 @@
-[build]\n  publish = "."\n\n[[headers]]\n  for = "/admin/*"\n  [headers.values]\n    X-Frame-Options = "SAMEORIGIN"\n
+[build]
+  publish = "BUD-WEL-panel"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
