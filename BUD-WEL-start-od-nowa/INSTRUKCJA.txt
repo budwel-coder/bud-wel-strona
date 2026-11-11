@@ -1,0 +1,13 @@
+BUD-WEL — panel administratora
+
+W paczce jest strona z obecnym wyglądem, kalkulatorem oraz panelem /admin.
+Panel umożliwia edycję cen, dodawanie/usuwanie usług oraz dodawanie/usuwanie zdjęć.
+
+WAŻNE: aby panel zapisywał zmiany w repozytorium i publikował je dla wszystkich klientów,
+po wdrożeniu strony trzeba w Netlify włączyć Identity i Git Gateway (jeśli są dostępne
+w ustawieniach witryny), a następnie zaprosić konto administratora.
+
+Adres panelu po wdrożeniu: https://budwel.netlify.app/admin/
+
+Nie przesyłaj samego pliku index.html. Wgraj całą zawartość tego folderu do repozytorium
+GitHub, zachowując strukturę katalogów: index.html, admin/, data/, netlify.toml.
