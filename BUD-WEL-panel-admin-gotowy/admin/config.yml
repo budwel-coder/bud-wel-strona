@@ -1,0 +1,44 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: pl
+media_folder: "uploads"
+public_folder: "/uploads"
+site_url: "https://budwel.netlify.app"
+display_url: "https://budwel.netlify.app"
+
+collections:
+  - name: "cennik"
+    label: "Cennik robocizny"
+    files:
+      - name: "stawki"
+        label: "Ceny usług"
+        file: "data/prices.json"
+        format: "json"
+        fields:
+          - label: "Usługi i ceny"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.price}} zł/{{fields.unit}}"
+            fields:
+              - { label: "Kategoria", name: "category", widget: "select", options: [{label: "Glazurnictwo i łazienki", value: "glazura"}, {label: "Docieplenia i elewacje", value: "ocieplenia"}, {label: "Gładzie i malowanie", value: "wykonczenia"}, {label: "Zabudowy G-K i poddasza", value: "kg"}, {label: "Pozostałe prace", value: "pozostale"}] }
+              - { label: "Nazwa usługi", name: "name", widget: "string" }
+              - { label: "Jednostka", name: "unit", widget: "select", options: ["m²", "mb", "szt.", "stopień"] }
+              - { label: "Cena robocizny (zł)", name: "price", widget: "number", value_type: "int", min: 0 }
+  - name: "galeria"
+    label: "Galeria zdjęć"
+    files:
+      - name: "zdjecia"
+        label: "Zdjęcia realizacji"
+        file: "data/gallery.json"
+        format: "json"
+        fields:
+          - label: "Zdjęcia"
+            name: "photos"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.category}}"
+            fields:
+              - { label: "Tytuł", name: "title", widget: "string" }
+              - { label: "Kategoria", name: "category", widget: "select", options: ["Łazienki", "Zabudowy", "Schody", "Elewacje", "Wnętrza"] }
+              - { label: "Zdjęcie", name: "image", widget: "image" }
