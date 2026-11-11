@@ -1,5 +1,5 @@
 [build]
-  publish = "."
+  publish = "BUD-WEL-panel"
 
 [[headers]]
   for = "/admin/*"
