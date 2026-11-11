@@ -1,0 +1,220 @@
+{
+  "items": [
+    {
+      "category": "glazura",
+      "name": "Układanie glazury",
+      "unit": "m²",
+      "price": 90
+    },
+    {
+      "category": "glazura",
+      "name": "Układanie gresu",
+      "unit": "m²",
+      "price": 110
+    },
+    {
+      "category": "glazura",
+      "name": "Gres wielkoformatowy",
+      "unit": "m²",
+      "price": 150
+    },
+    {
+      "category": "glazura",
+      "name": "Mozaika",
+      "unit": "m²",
+      "price": 180
+    },
+    {
+      "category": "glazura",
+      "name": "Płytki w karo",
+      "unit": "m²",
+      "price": 110
+    },
+    {
+      "category": "glazura",
+      "name": "Fugowanie",
+      "unit": "m²",
+      "price": 15
+    },
+    {
+      "category": "glazura",
+      "name": "Hydroizolacja",
+      "unit": "m²",
+      "price": 28
+    },
+    {
+      "category": "glazura",
+      "name": "Gruntowanie pod płytki",
+      "unit": "m²",
+      "price": 5
+    },
+    {
+      "category": "glazura",
+      "name": "Szlifowanie narożników 45°",
+      "unit": "mb",
+      "price": 60
+    },
+    {
+      "category": "glazura",
+      "name": "Wiercenie otworu w płytce",
+      "unit": "szt.",
+      "price": 20
+    },
+    {
+      "category": "ocieplenia",
+      "name": "Gruntowanie pod styropian",
+      "unit": "m²",
+      "price": 4
+    },
+    {
+      "category": "ocieplenia",
+      "name": "Klejenie styropianu",
+      "unit": "m²",
+      "price": 25
+    },
+    {
+      "category": "ocieplenia",
+      "name": "Kołkowanie",
+      "unit": "m²",
+      "price": 9
+    },
+    {
+      "category": "ocieplenia",
+      "name": "Szlifowanie styropianu",
+      "unit": "m²",
+      "price": 6
+    },
+    {
+      "category": "ocieplenia",
+      "name": "Zatopienie siatki",
+      "unit": "m²",
+      "price": 22
+    },
+    {
+      "category": "ocieplenia",
+      "name": "Montaż narożników",
+      "unit": "mb",
+      "price": 10
+    },
+    {
+      "category": "ocieplenia",
+      "name": "Gruntowanie pod tynk",
+      "unit": "m²",
+      "price": 4
+    },
+    {
+      "category": "ocieplenia",
+      "name": "Wykonanie tynku",
+      "unit": "m²",
+      "price": 30
+    },
+    {
+      "category": "ocieplenia",
+      "name": "Docieplenie ościeży",
+      "unit": "mb",
+      "price": 25
+    },
+    {
+      "category": "ocieplenia",
+      "name": "Montaż listwy startowej",
+      "unit": "mb",
+      "price": 10
+    },
+    {
+      "category": "wykonczenia",
+      "name": "Gruntowanie ścian",
+      "unit": "m²",
+      "price": 5
+    },
+    {
+      "category": "wykonczenia",
+      "name": "Gładź jednokrotna",
+      "unit": "m²",
+      "price": 28
+    },
+    {
+      "category": "wykonczenia",
+      "name": "Gładź dwukrotna",
+      "unit": "m²",
+      "price": 42
+    },
+    {
+      "category": "wykonczenia",
+      "name": "Szlifowanie gładzi",
+      "unit": "m²",
+      "price": 10
+    },
+    {
+      "category": "wykonczenia",
+      "name": "Malowanie dwukrotne",
+      "unit": "m²",
+      "price": 20
+    },
+    {
+      "category": "kg",
+      "name": "Ścianka G-K jednostronna",
+      "unit": "m²",
+      "price": 55
+    },
+    {
+      "category": "kg",
+      "name": "Ścianka G-K dwustronna",
+      "unit": "m²",
+      "price": 85
+    },
+    {
+      "category": "kg",
+      "name": "Sufit podwieszany",
+      "unit": "m²",
+      "price": 90
+    },
+    {
+      "category": "kg",
+      "name": "Zabudowa skosów",
+      "unit": "m²",
+      "price": 100
+    },
+    {
+      "category": "kg",
+      "name": "Ocieplenie wełną",
+      "unit": "m²",
+      "price": 25
+    },
+    {
+      "category": "kg",
+      "name": "Montaż paroizolacji",
+      "unit": "m²",
+      "price": 12
+    },
+    {
+      "category": "kg",
+      "name": "Szpachlowanie połączeń",
+      "unit": "mb",
+      "price": 12
+    },
+    {
+      "category": "pozostale",
+      "name": "Układanie paneli",
+      "unit": "m²",
+      "price": 35
+    },
+    {
+      "category": "pozostale",
+      "name": "Montaż listew przypodłogowych",
+      "unit": "mb",
+      "price": 15
+    },
+    {
+      "category": "pozostale",
+      "name": "Montaż drzwi",
+      "unit": "szt.",
+      "price": 300
+    },
+    {
+      "category": "pozostale",
+      "name": "Układanie płytek na schodach",
+      "unit": "stopień",
+      "price": 100
+    }
+  ]
+}
