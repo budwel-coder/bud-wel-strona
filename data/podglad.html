@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUD-WEL — podgląd wizualny</title>
+<style>
+:root{color-scheme:light;--ink:#202723;--muted:#69716c;--line:#dedbd3;--gold:#b99a67;--paper:#f5f2eb}
+*{box-sizing:border-box}body{margin:0;background:#eceae5;color:var(--ink);font:14px/1.45 Arial,Helvetica,sans-serif}
+.top{height:58px;background:#17211e;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+.top strong{letter-spacing:.08em}.top a{color:#e5d2ad;text-decoration:none}
+.layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:16px;padding:16px;max-width:1600px;margin:auto}
+.panel,.stage{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.panel{padding:18px;max-height:calc(100vh - 90px);overflow:auto}
+h1{font-size:19px;margin:0 0 6px}.intro{color:var(--muted);margin:0 0 18px}
+.group{border-top:1px solid var(--line);padding:15px 0}.group h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px;color:#59615c}
+label{display:block;font-weight:600;margin:10px 0 5px}
+input,textarea,select{width:100%;border:1px solid #cfcfc8;border-radius:7px;padding:9px;font:14px Arial;color:var(--ink);background:#fff}
+textarea{min-height:76px;resize:vertical}
+input[type=range]{padding:0;accent-color:#927449}
+.val{float:right;color:var(--muted);font-weight:400}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+button{border:1px solid #bdb8ad;background:#fff;border-radius:7px;padding:9px 12px;cursor:pointer;font-weight:600;color:#27312b}
+button.active,button.primary{background:#17211e;color:#fff;border-color:#17211e}
+.note{font-size:12px;color:#69716c;margin-top:12px}
+.stage{padding:12px;background:#d9d8d3;min-width:0}
+.stagebar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;color:#424943;font-size:12px}
+.frame{margin:0 auto;background:white;box-shadow:0 8px 30px #0002;width:100%;height:calc(100vh - 145px);min-height:500px;transition:width .2s;overflow:hidden}
+iframe{width:100%;height:100%;border:0;background:#fff}
+.status{font-size:12px;color:#4e5b52}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.panel{max-height:none}.frame{height:70vh;min-height:500px}}
+</style>
+</head>
+<body>
+<header class="top"><strong>BUD-WEL / PODGLĄD WIZUALNY</strong><a href="/admin/">← Wróć do panelu CMS</a></header>
+<div class="layout">
+<aside class="panel">
+<h1>Sprawdź wygląd strony</h1>
+<p class="intro">Zmieniaj tekst i typografię, a efekt zobaczysz od razu po prawej stronie.</p>
+
+<section class="group">
+<h2>Tekst nagłówka</h2>
+<label for="heroTitle">Nagłówek główny</label>
+<textarea id="heroTitle" placeholder="Treść nagłówka"></textarea>
+<label for="heroText">Opis pod nagłówkiem</label>
+<textarea id="heroText" placeholder="Opis"></textarea>
+<label for="heroAlign">Wyrównanie</label>
+<select id="heroAlign"><option value="left">Do lewej</option><option value="center">Do środka</option><option value="right">Do prawej</option></select>
+</section>
+
+<section class="group">
+<h2>Wielkość i odstępy</h2>
+<label for="titleSize">Wielkość nagłówka <span class="val" id="titleSizeVal">76 px</span></label>
+<input id="titleSize" type="range" min="32" max="112" value="76">
+<label for="titleLine">Interlinia nagłówka <span class="val" id="titleLineVal">1.03</span></label>
+<input id="titleLine" type="range" min="80" max="140" value="103">
+<label for="textSize">Wielkość opisu <span class="val" id="textSizeVal">19 px</span></label>
+<input id="textSize" type="range" min="13" max="28" value="19">
+<label for="contentWidth">Szerokość tekstu <span class="val" id="contentWidthVal">650 px</span></label>
+<input id="contentWidth" type="range" min="300" max="900" value="650">
+</section>
+
+<section class="group">
+<h2>Podgląd urządzenia</h2>
+<div class="actions">
+<button type="button" class="active" id="desktopBtn">Komputer</button>
+<button type="button" id="tabletBtn">Tablet</button>
+<button type="button" id="mobileBtn">Telefon</button>
+</div>
+</section>
+
+<div class="actions">
+<button type="button" class="primary" id="resetBtn">Przywróć oryginalny wygląd</button>
+<button type="button" id="reloadBtn">Odśwież stronę</button>
+</div>
+<p class="note">To bezpieczny podgląd próbny. Zmiany tutaj nie zapisują się na stronie i nie publikują niczego. Po wybraniu wyglądu przenieś zaakceptowany tekst do panelu CMS.</p>
+<p class="status" id="status">Ładowanie strony…</p>
+</aside>
+
+<main class="stage">
+<div class="stagebar"><span>Podgląd rzeczywistej strony BUD-WEL</span><span id="frameLabel">Szerokość: 100%</span></div>
+<div class="frame" id="frame"><iframe id="siteFrame" title="Podgląd strony BUD-WEL" src="/?preview_visual=1"></iframe></div>
+</main>
+</div>
+<script>
+(() => {
+ const frame=document.getElementById('siteFrame');
+ const $=id=>document.getElementById(id);
+ let original={title:'',text:'',align:'left',titleSize:76,titleLine:103,textSize:19,width:650};
+ let ready=false;
+ function doc(){try{return frame.contentDocument||frame.contentWindow.document}catch(e){return null}}
+ function find(){const d=doc();return d?{title:d.querySelector('.hero h1'),text:d.querySelector('.hero p'),inner:d.querySelector('.hero-inner')}:{}}
+ function setStatus(s){$('status').textContent=s}
+ function apply(){
+   const els=find(); if(!els.title||!els.text||!els.inner){setStatus('Nie udało się znaleźć nagłówka strony. Kliknij „Odśwież stronę”.');return}
+   els.title.textContent=$('heroTitle').value;
+   els.text.textContent=$('heroText').value;
+   els.inner.style.textAlign=$('heroAlign').value;
+   els.title.style.fontSize=$('titleSize').value+'px';
+   els.title.style.lineHeight=(+$('titleLine').value/100).toFixed(2);
+   els.text.style.fontSize=$('textSize').value+'px';
+   els.inner.style.maxWidth=$('contentWidth').value+'px';
+   $('titleSizeVal').textContent=$('titleSize').value+' px';
+   $('titleLineVal').textContent=(+$('titleLine').value/100).toFixed(2);
+   $('textSizeVal').textContent=$('textSize').value+' px';
+   $('contentWidthVal').textContent=$('contentWidth').value+' px';
+   setStatus('Podgląd zaktualizowany — zmiany są tymczasowe.');
+ }
+ function fill(){
+   const els=find();if(!els.title||!els.text)return false;
+   original={title:els.title.innerText,text:els.text.innerText,align:'left',titleSize:76,titleLine:103,textSize:19,width:650};
+   $('heroTitle').value=original.title;
+   $('heroText').value=original.text;
+   $('heroAlign').value='left';
+   $('titleSize').value=76;$('titleLine').value=103;$('textSize').value=19;$('contentWidth').value=650;
+   apply();ready=true;return true;
+ }
+ frame.addEventListener('load',()=>{let tries=0;const timer=setInterval(()=>{tries++;if(fill()||tries>30){clearInterval(timer);if(!ready)setStatus('Strona się otworzyła, ale jej elementy jeszcze się ładują. Odśwież podgląd.')}},400)});
+ ['heroTitle','heroText','heroAlign','titleSize','titleLine','textSize','contentWidth'].forEach(id=>$(id).addEventListener('input',apply));
+ function device(width,label,button){
+   $('frame').style.width=width;
+   $('frameLabel').textContent=label;
+   ['desktopBtn','tabletBtn','mobileBtn'].forEach(id=>$(id).classList.remove('active'));
+   $(button).classList.add('active');
+ }
+ $('desktopBtn').onclick=()=>device('100%','Komputer — pełna szerokość','desktopBtn');
+ $('tabletBtn').onclick=()=>device('820px','Tablet — 820 px','tabletBtn');
+ $('mobileBtn').onclick=()=>device('390px','Telefon — 390 px','mobileBtn');
+ $('resetBtn').onclick=()=>{if(ready){$('heroTitle').value=original.title;$('heroText').value=original.text;$('heroAlign').value='left';$('titleSize').value=76;$('titleLine').value=103;$('textSize').value=19;$('contentWidth').value=650;apply()}};
+ $('reloadBtn').onclick=()=>{ready=false;frame.src='/?preview_visual=1'};
+})();
+</script>
+</body>
+</html>
