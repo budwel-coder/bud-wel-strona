@@ -1,0 +1,53 @@
+{
+  "hero_eyebrow": "Lidzbark Welski · Działdowo · okolice",
+  "hero_title": "Wnętrza\nwykończone\nz precyzją.",
+  "hero_text": "Glazurnictwo, łazienki, kompleksowe wykończenia wnętrz i docieplenia budynków. Zobacz jakość naszej pracy na zdjęciach prawdziwych realizacji.",
+  "hero_primary": "Zobacz realizacje ↗",
+  "hero_secondary": "Zapytaj o wycenę",
+  "services_eyebrow": "Czym się zajmujemy",
+  "services_title": "Solidne wykonanie.\nDobry efekt.",
+  "services_intro": "Od precyzyjnego ułożenia płytek po wykończenie całego wnętrza. Stawiamy na estetykę detalu i przemyślane rozwiązania.",
+  "services": [
+    {
+      "title": "Glazurnictwo",
+      "description": "Układanie płytek, gresu, zabudowa schodów, estetyczne wykończenie narożników i detali."
+    },
+    {
+      "title": "Łazienki",
+      "description": "Remonty i wykończenia łazienek, strefy prysznicowe, biały montaż i zabudowy."
+    },
+    {
+      "title": "Wykończenia wnętrz",
+      "description": "Ściany, sufity, podłogi i prace wykończeniowe w domach i mieszkaniach."
+    },
+    {
+      "title": "Zabudowy dekoracyjne",
+      "description": "Ścianki telewizyjne, zabudowy gipsowo-kartonowe, lamele i oświetlenie LED."
+    },
+    {
+      "title": "Schody i tarasy",
+      "description": "Okładziny schodów wewnętrznych i zewnętrznych oraz wykończenia powierzchni płytkami."
+    },
+    {
+      "title": "Docieplenia i elewacje",
+      "description": "Ocieplanie budynków i prace elewacyjne z dbałością o estetykę wykończenia."
+    }
+  ],
+  "about_eyebrow": "BUD-WEL · Piotr Czapliński",
+  "about_title": "Detale robią różnicę.",
+  "about_paragraph_1": "BUD-WEL zajmuje się pracami glazurniczymi, wykończeniami wnętrz i dociepleniami. W naszych realizacjach liczy się staranność wykonania – zarówno w miejscach widocznych na pierwszy rzut oka, jak i w drobnych detalach.",
+  "about_paragraph_2": "Pracujemy w rejonie Lidzbarka Welskiego, Działdowa i okolic. Zapraszamy do obejrzenia portfolio oraz kontaktu w sprawie planowanego remontu.",
+  "about_tags": "Glazurnictwo, Łazienki, Wykończenia, Docieplenia",
+  "news_title": "Aktualności i informacje",
+  "news_intro": "Nowości i informacje od BUD-WEL.",
+  "news": [],
+  "contact_eyebrow": "Porozmawiajmy o realizacji",
+  "contact_title": "Masz pomysł?\nZrealizujmy go.",
+  "contact_intro": "Opowiedz o planowanych pracach. Ustalimy zakres i kolejne kroki.",
+  "company_name": "BUD-WEL – Piotr Czapliński",
+  "company_services": "Usługi glazurnicze, wykończeniowe i dociepleniowe",
+  "service_area": "Lidzbark Welski · Działdowo · okolice",
+  "phone": "886 532 925",
+  "email": "bud.wel@icloud.com",
+  "google_url": "https://maps.app.goo.gl/iPPoZxuvBXbjRBFR7"
+}
