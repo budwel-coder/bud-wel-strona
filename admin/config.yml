@@ -42,3 +42,53 @@ collections:
               - { label: "Tytuł", name: "title", widget: "string" }
               - { label: "Kategoria", name: "category", widget: "select", options: ["Łazienki", "Zabudowy", "Schody", "Elewacje", "Wnętrza"] }
               - { label: "Zdjęcie", name: "image", widget: "image" }
+
+  - name: "strona"
+    label: "Treści strony"
+    files:
+      - name: "tresci"
+        label: "Strona główna i informacje o firmie"
+        file: "data/site.json"
+        format: "json"
+        fields:
+          - { label: "Mały tekst nad nagłówkiem", name: "hero_eyebrow", widget: "string" }
+          - { label: "Główny nagłówek (każda linia osobno)", name: "hero_title", widget: "text" }
+          - { label: "Opis na stronie głównej", name: "hero_text", widget: "text" }
+          - { label: "Tekst pierwszego przycisku", name: "hero_primary", widget: "string" }
+          - { label: "Tekst drugiego przycisku", name: "hero_secondary", widget: "string" }
+          - { label: "Nagłówek sekcji usług – mały tekst", name: "services_eyebrow", widget: "string" }
+          - { label: "Nagłówek sekcji usług (linie oddzielone enterem)", name: "services_title", widget: "text" }
+          - { label: "Wprowadzenie do usług", name: "services_intro", widget: "text" }
+          - label: "Lista usług"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Nazwa usługi", name: "title", widget: "string" }
+              - { label: "Opis usługi", name: "description", widget: "text" }
+          - { label: "Mały nagłówek sekcji O firmie", name: "about_eyebrow", widget: "string" }
+          - { label: "Nagłówek O firmie", name: "about_title", widget: "string" }
+          - { label: "Opis firmy – akapit 1", name: "about_paragraph_1", widget: "text" }
+          - { label: "Opis firmy – akapit 2", name: "about_paragraph_2", widget: "text" }
+          - { label: "Znaczniki usług (oddziel przecinkami)", name: "about_tags", widget: "string" }
+          - { label: "Nagłówek aktualności", name: "news_title", widget: "string" }
+          - { label: "Wprowadzenie do aktualności", name: "news_intro", widget: "text" }
+          - label: "Aktualności"
+            name: "news"
+            widget: "list"
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Tytuł", name: "title", widget: "string" }
+              - { label: "Treść", name: "body", widget: "text" }
+              - { label: "Data (np. 12.11.2026)", name: "date", widget: "string", required: false }
+              - { label: "Opublikuj", name: "published", widget: "boolean", default: true }
+          - { label: "Mały nagłówek kontaktu", name: "contact_eyebrow", widget: "string" }
+          - { label: "Nagłówek kontaktu (linie oddzielone enterem)", name: "contact_title", widget: "text" }
+          - { label: "Opis kontaktu", name: "contact_intro", widget: "text" }
+          - { label: "Nazwa firmy", name: "company_name", widget: "string" }
+          - { label: "Zakres usług", name: "company_services", widget: "string" }
+          - { label: "Obszar działania", name: "service_area", widget: "string" }
+          - { label: "Telefon", name: "phone", widget: "string" }
+          - { label: "E-mail", name: "email", widget: "string" }
+          - { label: "Link do Profilu Firmy Google", name: "google_url", widget: "string", required: false }
